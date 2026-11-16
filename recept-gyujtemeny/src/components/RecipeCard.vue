@@ -1,5 +1,5 @@
 <script setup>
-import { watchEffect } from 'vue';
+import { watchEffect, ref } from 'vue';
 import { receiptState } from '../state/state';
 import {testRecipts} from '../data/testData.js';
 import Receipt from '../classes/Receipt';
@@ -12,10 +12,10 @@ watchEffect(()=>{
     receipts.value = state.getReceipts();
 });
 
-const init = ()=>{
+const init = () => {
     for (let i = 0; i < testRecipts.length; i++) {
-        const r =  testRecipts[i];
-        const imageSRC = new URL(`../assets/images/${r.image}`, import.meta.url).href;
+        const r = testRecipts[i];
+        const imageSRC = new URL(r.image, import.meta.url).href;
         testList.value.push(new Receipt(imageSRC, r.title, r.time, r.difficulty));
     }
 }
