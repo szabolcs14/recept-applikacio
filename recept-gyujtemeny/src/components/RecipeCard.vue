@@ -73,7 +73,7 @@ const filteredReceipts = computed(() => {
     </div>
 
     <div v-if="filteredReceipts.length === 0" class="text-center m-0">
-        <p class="badge text-bg-danger mt-4">Nincs találat!</p>
+        <p class="badge text-bg-danger mt-4 fs-6">Nincs találat!</p>
     </div>
 </template>
 
