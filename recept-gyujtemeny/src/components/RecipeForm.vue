@@ -24,6 +24,9 @@
                 <option value="3">nehéz</option>
             </select>
         </div>
+        <div class="mb-3">
+            <p><button type="button" class="btn btn-success">Hozáad</button></p>
+        </div>
     </form>
 </template>
 <style scoped>
