@@ -104,4 +104,15 @@ init();
          font-size: 16px;
          font-weight: 600;
     }
+
+    @media (max-width: 768px) {
+  
+    .d-flex{
+        justify-content: center;
+    }
+    .card{
+        margin-bottom: 20px  !important;
+    }
+
+  }
 </style>
