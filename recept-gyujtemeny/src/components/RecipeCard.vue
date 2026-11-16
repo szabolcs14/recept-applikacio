@@ -8,6 +8,9 @@ const receipts = ref([]);
 const searchText = ref("");
 const difficult = ref(0);
 const prepareTime = ref(0);
+const isEasy = ref(false);
+const isMedium = ref(false);
+const isHard = ref(false);
 
 watchEffect(() => {
     receipts.value = state.getReceipts();
@@ -25,6 +28,13 @@ const resolveDifficulty = (d) => {
     if (d == 2) return "Közepes";
     if (d == 3) return "Nehéz";
     return "Nincs definiálva!";
+};
+
+const getDifficultyClass = (d) => {
+    if (d == 1) return "text-bg-success"; 
+    if (d == 2) return "text-bg-warning";
+    if (d == 3) return "text-bg-danger"; 
+    return "text-bg-secondary";        
 };
 
 const filteredReceipts = computed(() => {
@@ -66,7 +76,11 @@ const filteredReceipts = computed(() => {
             <div class="card-body">
                 <h5 class="card-title">{{ receipt.getTitle() }}</h5>
                 <p class="card-text">Elkészítési idő: <span>{{ receipt.getPreparation() }}</span> perc </p>
-                <p>{{ resolveDifficulty(receipt.getDifficulty()) }}</p>
+               <p>
+        <span class="badge" :class="getDifficultyClass(receipt.getDifficulty())">
+            {{ resolveDifficulty(receipt.getDifficulty()) }}
+        </span>
+    </p>
                 <a href="#" class="btn btn-primary">Részletek</a>
             </div>
         </div>
