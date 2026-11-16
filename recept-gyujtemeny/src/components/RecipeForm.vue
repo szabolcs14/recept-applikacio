@@ -30,5 +30,9 @@
     </form>
 </template>
 <style scoped>
-
+    .btn:hover {
+         transform: scale(1.05);
+         font-size: 16px;
+         font-weight: 600;
+    }
 </style>
