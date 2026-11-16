@@ -61,7 +61,7 @@ const add = () => {
             </select>
         </div>
         <div class="mb-3">
-            <p><button type="button" class="btn btn-success" @click="add">Hozzáad</button></p>
+            <p class="m-0 py-3" ><button type="button" class="btn btn-success" @click="add">Hozzáad</button></p>
         </div>
     </form>
 </template>
@@ -71,4 +71,15 @@ const add = () => {
          font-size: 16px;
          font-weight: 600;
     }
+
+     @media (max-width: 768px) {
+        
+        h1, div.mb-3:last-child{
+            text-align: center;
+        }
+        h1{
+            margin-bottom: 20px;
+        }
+  }
+  
 </style>

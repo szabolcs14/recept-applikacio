@@ -21,7 +21,17 @@ const LoadPage = (page) => {
   </head>
   <body>
     <header class="py-2 bg-light">
-      <div class="container d-flex">
+  
+      <div class="container mobil-header">
+        <h1 class="text-center">Recept könyv</h1>
+        <nav class="d-flex">
+          <p class="my-0 px-3" @click="LoadPage(0)">Receptek</p>
+          <p class="my-0 px-3" @click="LoadPage(1)">Új Receptek</p>
+          <p class="my-0 px-3">Kedvencek</p>
+        </nav>
+      </div>
+
+      <div class="container d-flex desktop-header">
         <h1 class="pe-3">Recept könyv</h1>
         <nav class="d-flex">
           <p class="my-0 px-3" @click="LoadPage(0)">Receptek</p>
@@ -29,6 +39,7 @@ const LoadPage = (page) => {
           <p class="my-0 px-3">Kedvencek</p>
         </nav>
       </div>
+
     </header>
     <main class="container py-4">
       <section v-if="activePage == 0">
@@ -45,6 +56,8 @@ const LoadPage = (page) => {
   </html>
 </template>
 <style scoped>
+
+
   nav p {
     color: #808080;
     font-size: 16px;
@@ -54,8 +67,8 @@ const LoadPage = (page) => {
     cursor: pointer;
     font-weight: 600;
     font-size: 17px;
-
   }
+
   header .d-flex{
         align-items: center;
         justify-content: flex-start;
@@ -63,6 +76,34 @@ const LoadPage = (page) => {
   h1 {
     font-size: 24px;
     font-weight: 400;
+  }
+
+  .mobil-header {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+  
+    .mobil-header {
+        display: block;
+    }
+
+    .desktop-header {
+        display: none !important;
+    }
+
+    .mobil-header nav {
+        justify-content: center;
+    }
+
+    .mobil-header h1 {
+        margin-bottom: 15px;
+    }
+
+    h1{
+      font-size: 32px;
+      padding: 10px;
+    }
   }
 
 </style>
