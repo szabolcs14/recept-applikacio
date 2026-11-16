@@ -17,8 +17,8 @@
             <input type="number" class="form-control">
         </div>
         <div class="mb-3">
+            <label class="form-label">Válassz nehézséget</label>
             <select class="form-select" aria-label="Default select example">
-                <option value="0">Válasz nehézséget</option>
                 <option value="1">könnyű</option>
                 <option value="2">közepes</option>
                 <option value="3">nehéz</option>
@@ -30,5 +30,5 @@
     </form>
 </template>
 <style scoped>
-
+    
 </style>
