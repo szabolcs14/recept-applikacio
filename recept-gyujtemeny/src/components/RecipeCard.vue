@@ -64,6 +64,7 @@ resolveDifficulty();
         </div>
     </div>
     <div class="d-flex">
+
         <div v-for="(receipt, index) in receipts" class="card m-1" style="width: 18rem;">
             <img :src="resolveUrl(receipt.getImage())" class="card-img-top" alt="edes-csirka">
             <div class="card-body">
@@ -71,6 +72,7 @@ resolveDifficulty();
                 <p class="card-text">Elkészítési idő: <span>{{receipt.getPreparation()}}</span> perc </p>
                 <p>{{difficulty}}</p>
                 <a href="#" class="btn btn-primary">Részletek</a>
+
             </div>
         </div>
     </div>
@@ -82,5 +84,40 @@ resolveDifficulty();
     .d-flex{
         flex-wrap: wrap;
         justify-content: flex-start;
+    }
+    .card img {
+        height: 200px;
+    }
+    .card, .card img {
+        width: 300px !important;
+    }
+    .card .d-flex {
+            align-content: space-between;
+    }
+
+
+    .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    }
+
+    .card:hover {
+        transform: scale(1.04);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    .card img {
+        transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.1);
+    }
+
+    .btn:hover {
+         transform: scale(1.05);
+         font-size: 16px;
+         font-weight: 600;
     }
 </style>

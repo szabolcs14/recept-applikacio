@@ -35,7 +35,6 @@ const add = () => {
         name.value = image.value = time.value = difficulty.value = "";
     }
 }
-
 </script>
 <template>
     <h1>Add hozzá a saját recepted!</h1>
@@ -46,6 +45,7 @@ const add = () => {
         </div>
         <div class="mb-3">
             <label class="form-label">Kép</label>
+
             <input v-model="image" type="text" class="form-control">
         </div>
         <div class="mb-3">
@@ -65,4 +65,10 @@ const add = () => {
         </div>
     </form>
 </template>
-<style scoped></style>
+<style scoped>
+    .btn:hover {
+         transform: scale(1.05);
+         font-size: 16px;
+         font-weight: 600;
+    }
+</style>
