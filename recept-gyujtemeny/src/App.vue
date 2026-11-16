@@ -30,7 +30,7 @@ const LoadPage = (page) => {
         </nav>
       </div>
     </header>
-    <main class="container">
+    <main class="container py-4">
       <section v-if="activePage == 0">
         <RecipeCard />
       </section>
@@ -56,7 +56,7 @@ const LoadPage = (page) => {
     font-size: 17px;
 
   }
-  .d-flex{
+  header .d-flex{
         align-items: center;
         justify-content: flex-start;
   }
