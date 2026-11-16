@@ -45,12 +45,11 @@ const add = () => {
         </div>
         <div class="mb-3">
             <label class="form-label">Kép</label>
-
-            <input v-model="image" type="text" class="form-control">
+            <input v-model="image" type="text" class="form-control" placeholder="URL">
         </div>
         <div class="mb-3">
             <label class="form-label">Mennyi idő elkészítne?</label>
-            <input v-model="time" type="number" class="form-control">
+            <input v-model="time" type="number" class="form-control" placeholder="... perc">
         </div>
         <div class="mb-3">
             <select v-model="difficulty" class="form-select" aria-label="Default select example">
