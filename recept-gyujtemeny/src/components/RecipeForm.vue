@@ -55,9 +55,9 @@ const add = () => {
         <div class="mb-3">
             <select v-model="difficulty" class="form-select" aria-label="Default select example">
                 <option value="0">Válasz nehézséget</option>
-                <option value="1">könnyű</option>
-                <option value="2">közepes</option>
-                <option value="3">nehéz</option>
+                <option value="1">Könnyű</option>
+                <option value="2">Közepes</option>
+                <option value="3">Nehéz</option>
             </select>
         </div>
         <div class="mb-3">
