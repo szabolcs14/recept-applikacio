@@ -48,11 +48,15 @@ init();
     <div class="d-flex">
         <div v-for="receipt in testList" class="card m-1" style="width: 18rem;">
             <img :src="receipt.getImage()" class="card-img-top" alt="edes-csirka">
-            <div class="card-body">
-                <h5 class="card-title">{{receipt.getTitle()}}</h5>
-                <p class="card-text">Elkészítési idő: <span>{{receipt.getPreparation()}}</span> perc </p>
-                <p>{{receipt.getDifficulty()}}</p>
-                <a href="#" class="btn btn-primary">Részletek</a>
+            <div class="card-body d-flex">
+                <div>
+                    <h5 class="card-title">{{receipt.getTitle()}}</h5>
+                    <p class="card-text">Elkészítési idő: <span>{{receipt.getPreparation()}}</span> perc </p>
+                    <p>{{receipt.getDifficulty()}}</p>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-primary">Részletek</a>
+                </div>
             </div>
         </div>
     </div>
@@ -64,5 +68,14 @@ init();
     .d-flex{
         flex-wrap: wrap;
         justify-content: flex-start;
+    }
+    .card img {
+        height: 200px;
+    }
+    .card, .card img {
+        width: 300px !important;
+    }
+    .card .d-flex {
+            align-content: space-between;
     }
 </style>

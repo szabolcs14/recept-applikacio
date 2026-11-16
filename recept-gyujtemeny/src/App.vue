@@ -64,4 +64,5 @@ const LoadPage = (page) => {
     font-size: 24px;
     font-weight: 400;
   }
+
 </style>

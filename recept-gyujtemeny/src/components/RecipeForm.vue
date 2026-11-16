@@ -10,11 +10,11 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Kép</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" placeholder="URL">
         </div>
         <div class="mb-3">
             <label class="form-label">Mennyi idő elkészítne?</label>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" placeholder="... perc" min="0">
         </div>
         <div class="mb-3">
             <label class="form-label">Válassz nehézséget</label>
@@ -25,10 +25,10 @@
             </select>
         </div>
         <div class="mb-3">
-            <p><button type="button" class="btn btn-success">Hozáad</button></p>
+            <p><button type="button" class="btn btn-success">Hozzáad</button></p>
         </div>
     </form>
 </template>
 <style scoped>
-    
+
 </style>
