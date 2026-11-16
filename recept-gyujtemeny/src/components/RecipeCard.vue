@@ -78,4 +78,24 @@ init();
     .card .d-flex {
             align-content: space-between;
     }
+
+
+    .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    }
+
+    .card:hover {
+        transform: scale(1.04);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    .card img {
+        transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+        transform: scale(1.1);
+    }
 </style>
