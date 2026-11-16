@@ -1,12 +1,18 @@
 <script setup>
+import { ref } from 'vue';
 import RecipeCard from './components/RecipeCard.vue';
+import RecipeForm from './components/RecipeForm.vue';
 
+const activePage = ref(0)
+const LoadPage = (page) => {
+  activePage.value = page
+}
 
 </script>
 
 <template>
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="hu">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,17 +24,22 @@ import RecipeCard from './components/RecipeCard.vue';
       <div class="container d-flex">
         <h1 class="pe-3">Recept könyv</h1>
         <nav class="d-flex">
-          <p class="my-0 px-3">Receptek</p>
-          <p class="my-0 px-3">Új Receptek</p>
+          <p class="my-0 px-3" @click="LoadPage(0)">Receptek</p>
+          <p class="my-0 px-3" @click="LoadPage(1)">Új Receptek</p>
           <p class="my-0 px-3">Kedvencek</p>
         </nav>
       </div>
     </header>
-    <main>
-      
+    <main class="container">
+      <section v-if="activePage == 0">
+        <RecipeCard />
+      </section>
+      <section v-if="activePage == 1">
+        <RecipeForm />
+      </section>
     </main>
-    <footer class="py-2 bg-light text-center">
-      <p>&copy; Minden jog fenttartva</p>
+    <footer class="py-3 bg-light text-center">
+      <p class="my-0">&copy; Minden jog fenttartva</p>
     </footer>
   </body>
   </html>
