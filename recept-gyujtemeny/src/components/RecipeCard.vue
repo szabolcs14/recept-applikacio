@@ -54,9 +54,9 @@ const filteredReceipts = computed(() => {
         <div class="col-lg-3 mb-3">
             <select v-model="difficult" class="form-select">
                 <option value="0">Minden nehézség</option>
-                <option value="1">könnyű</option>
-                <option value="2">közepes</option>
-                <option value="3">nehéz</option>
+                <option value="1">Könnyű</option>
+                <option value="2">Közepes</option>
+                <option value="3">Nehéz</option>
             </select>
         </div>
         <div class="col-lg-3 mb-3">
@@ -87,7 +87,7 @@ const filteredReceipts = computed(() => {
     </div>
 
     <div v-if="filteredReceipts.length === 0" class="text-center m-0">
-        <p>Nincs találat!</p>
+        <p class="badge text-bg-danger mt-4">Nincs találat!</p>
     </div>
 </template>
 
