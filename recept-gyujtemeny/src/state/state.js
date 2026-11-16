@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const useReceiptList = defineStore('receiptList', () => {
+export const receiptState = defineStore('receiptList', () => {
     const receipts = ref([]);
 
     function addReceipt(newReceipt) {
