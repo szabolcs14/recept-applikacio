@@ -23,4 +23,20 @@ export default class Receipt {
     setDifficulty(difficulty) {
         return this.#difficulty = difficulty;
     }
+
+    getImage() {
+        return this.#image;
+    }
+
+    getTitle() {
+        return this.#title;
+    }
+
+    getPreparation() {
+        return this.#preparation;
+    }
+
+    getDifficulty() {
+        return this.#difficulty;
+    }
 } 
