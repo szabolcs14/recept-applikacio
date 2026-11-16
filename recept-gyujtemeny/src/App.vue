@@ -3,9 +3,9 @@ import { ref } from 'vue';
 import RecipeCard from './components/RecipeCard.vue';
 import RecipeForm from './components/RecipeForm.vue';
 
-const activePage = ref(0)
+const activePage = ref(0);
 const LoadPage = (page) => {
-  activePage.value = page
+  activePage.value = page;
 }
 
 </script>
