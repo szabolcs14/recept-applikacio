@@ -7,20 +7,38 @@ import Receipt from '../classes/Receipt';
 const state = receiptState();
 const receipts = ref([]);
 const testList = ref([]);
+const difficulty = ref("");
 
 watchEffect(()=>{
     receipts.value = state.getReceipts();
 });
 
-const init = () => {
-    for (let i = 0; i < testRecipts.length; i++) {
-        const r = testRecipts[i];
-        const imageSRC = new URL(r.image, import.meta.url).href;
-        testList.value.push(new Receipt(imageSRC, r.title, r.time, r.difficulty));
+const resolveUrl = (imgsrc)=>{
+   if (imgsrc.startsWith('http://') || imgsrc.startsWith('https://')) {
+        return imgsrc;
+    }
+
+    return new URL(imgsrc, import.meta.url).href;
+}
+
+const resolveDifficulty = ()=>{
+    for (let i = 0; i < receipts.value.length; i++) {
+        const d = receipts.value[i].getDifficulty();
+
+        if(d == 1) {
+            difficulty.value = "Könnyű";
+        } else if(d == 2) {
+            difficulty.value = "Közepes";
+        } else if(difficulty == 3) {
+            difficulty.value = "Nehéz";
+        } else {
+            difficulty.value = "Nincs definiálva!";
+            return;
+        }
     }
 }
 
-init();
+resolveDifficulty();
 </script>
 <template>
     <div class="row">
@@ -41,22 +59,20 @@ init();
                 <option value="1">20 percen belül</option>
                 <option value="2">45 percen belül</option>
                 <option value="3">1 órán belül</option>
-                <option value="3">2 órán belül</option>
+                <option value="4">2 órán belül</option>
             </select>
         </div>
     </div>
     <div class="d-flex">
-        <div v-for="receipt in testList" class="card m-1" style="width: 18rem;">
-            <img :src="receipt.getImage()" class="card-img-top" alt="edes-csirka">
-            <div class="card-body d-flex">
-                <div>
-                    <h5 class="card-title">{{receipt.getTitle()}}</h5>
-                    <p class="card-text">Elkészítési idő: <span>{{receipt.getPreparation()}}</span> perc </p>
-                    <p>{{receipt.getDifficulty()}}</p>
-                </div>
-                <div>
-                    <a href="#" class="btn btn-primary">Részletek</a>
-                </div>
+
+        <div v-for="(receipt, index) in receipts" class="card m-1" style="width: 18rem;">
+            <img :src="resolveUrl(receipt.getImage())" class="card-img-top" alt="edes-csirka">
+            <div class="card-body">
+                <h5 class="card-title">{{receipt.getTitle()}}</h5>
+                <p class="card-text">Elkészítési idő: <span>{{receipt.getPreparation()}}</span> perc </p>
+                <p>{{difficulty}}</p>
+                <a href="#" class="btn btn-primary">Részletek</a>
+
             </div>
         </div>
     </div>
