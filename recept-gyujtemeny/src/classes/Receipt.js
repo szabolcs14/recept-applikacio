@@ -5,7 +5,20 @@ export default class Receipt {
     #difficulty;
 
     constructor(image, title, preparation, difficulty) {
+        this.setImage(image);
+        this.setTitle(title);
+        this.setPreparation(preparation);
+        this.setDifficulty(difficulty);
 
+        this.setImage = this.setImage.bind(this);
+        this.setTitle = this.setTitle.bind(this);
+        this.setPreparation = this.setPreparation.bind(this);
+        this.setDifficulty = this.setDifficulty.bind(this);
+
+        this.getImage = this.getImage.bind(this);
+        this.getTitle = this.getTitle.bind(this);
+        this.getPreparation = this.getPreparation.bind(this);
+        this.getDifficulty = this.getDifficulty.bind(this);
     }
 
     setImage(image) {
