@@ -29,37 +29,37 @@ export const receiptState = defineStore('receiptList', () => {
 });
 
 export const switchPage = defineStore('switchPage', () => {
-    const activePage = ref(0)
+    const activePage = ref(0);
 
     function receiptsPage() {
-        activePage.value = 0
+        activePage.value = 0;
     }
 
     function formPage() {
-        activePage.value = 1
+        activePage.value = 1;
     }
 
     function getPage() {
-        return activePage.value
+        return activePage.value;
     }
 
     return { receiptsPage, formPage, getPage }
-})
+});
 
 export const receiptUpdate = defineStore('receiptUpdate', () => {
-    const update = ref(false)
+    const update = ref(false);
 
     function updateTrue() {
-        update.value = true
+        update.value = true;
     }
 
     function updateFalse() {
-        update.value = false
+        update.value = false;
     }
 
     function getUpdate() {
-        return update.value
+        return update.value;
     }
 
     return { updateTrue, updateFalse, getUpdate }
-})
+});

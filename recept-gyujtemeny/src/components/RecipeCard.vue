@@ -2,8 +2,8 @@
 import { watchEffect, ref, computed } from 'vue';
 import { receiptState, receiptUpdate, switchPage } from '../state/state';
 
-const updatePage = receiptUpdate()
-const page = switchPage()
+const updatePage = receiptUpdate();
+const page = switchPage();
 
 const state = receiptState();
 const receipts = ref([]);
@@ -26,17 +26,17 @@ const resolveUrl = (imgsrc) => {
     return new URL(imgsrc, import.meta.url).href;
 };
 
-const remove = (index)=>{
+const remove = (index) => {
     if(confirm("Biztosan törli a receptet ?")) {
         state.removeReceipt(index);
     }
 }
 
 const update = (index) => {
-    page.formPage()
-    updatePage.updateTrue()
+    page.formPage();
+    updatePage.updateTrue();
     state.setUpdatedIndex(index);
-    alert(state.getUpdateIndex())
+    alert(state.getUpdateIndex());
 
 }
 

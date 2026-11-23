@@ -3,8 +3,8 @@ import { ref, watchEffect } from 'vue';
 import Receipt from '../classes/Receipt';
 import { receiptState, receiptUpdate, switchPage } from '../state/state';
 
-const updatePage = receiptUpdate()
-const page = switchPage()
+const updatePage = receiptUpdate();
+const page = switchPage();
 
 const isUpdate = ref(null);
 
@@ -44,10 +44,17 @@ const add = () => {
         name.value = image.value = time.value = difficulty.value = "";
     }
 }
+
 const edit = (index)=>{
     const selectedReceipt = state.getReceipts()[state.getUpdateIndex()];
     console.log(selectedReceipt);
-    alert(selectedReceipt.getTitle());
+    if(defineRecipt()) {
+            selectedReceipt.setImage(image.value);
+            selectedReceipt.setTitle(name.value);
+            selectedReceipt.setPreparation(time.value);
+            selectedReceipt.setDifficulty(difficulty.value);
+            alert(selectedReceipt.getTitle());
+    }
 }
 
 </script>
@@ -99,5 +106,4 @@ const edit = (index)=>{
             margin-bottom: 20px;
         }
   }
-  
 </style>
