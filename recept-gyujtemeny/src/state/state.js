@@ -18,3 +18,21 @@ export const receiptState = defineStore('receiptList', () => {
 
     return { addReceipt, removeReceipt, getReceipts }
 });
+
+export const switchPage = defineStore('switchPage', () => {
+    const activePage = ref(0)
+
+    function receiptsPage() {
+        activePage.value = 0
+    }
+
+    function formPage() {
+        activePage.value = 1
+    }
+
+    function getPage() {
+        return activePage.value
+    }
+
+    return { receiptsPage, formPage, getPage }
+})

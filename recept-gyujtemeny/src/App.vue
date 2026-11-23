@@ -2,11 +2,9 @@
 import { ref } from 'vue';
 import RecipeCard from './components/RecipeCard.vue';
 import RecipeForm from './components/RecipeForm.vue';
+import { switchPage } from './state/state.js';
 
-const activePage = ref(0);
-const LoadPage = (page) => {
-  activePage.value = page;
-}
+const page = switchPage()
 
 </script>
 
@@ -25,8 +23,8 @@ const LoadPage = (page) => {
       <div class="container mobil-header">
         <h1 class="text-center">Recept könyv</h1>
         <nav class="d-flex">
-          <p class="my-0 px-3" @click="LoadPage(0)">Receptek</p>
-          <p class="my-0 px-3" @click="LoadPage(1)">Új Receptek</p>
+          <p class="my-0 px-3" @click="page.receiptsPage()">Receptek</p>
+          <p class="my-0 px-3" @click="page.formPage()">Új Receptek</p>
           <p class="my-0 px-3">Kedvencek</p>
         </nav>
       </div>
@@ -34,18 +32,18 @@ const LoadPage = (page) => {
       <div class="container d-flex desktop-header">
         <h1 class="pe-3">Recept könyv</h1>
         <nav class="d-flex">
-          <p class="my-0 px-3" @click="LoadPage(0)">Receptek</p>
-          <p class="my-0 px-3" @click="LoadPage(1)">Új Receptek</p>
+          <p class="my-0 px-3" @click="page.receiptsPage()">Receptek</p>
+          <p class="my-0 px-3" @click="page.formPage()">Új Receptek</p>
           <p class="my-0 px-3">Kedvencek</p>
         </nav>
       </div>
 
     </header>
     <main class="container py-4">
-      <section v-if="activePage == 0">
+      <section v-if="page.getPage() == 0">
         <RecipeCard />
       </section>
-      <section v-if="activePage == 1">
+      <section v-if="page.getPage() == 1">
         <RecipeForm />
       </section>
     </main>
