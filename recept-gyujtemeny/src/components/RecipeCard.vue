@@ -23,6 +23,12 @@ const resolveUrl = (imgsrc) => {
     return new URL(imgsrc, import.meta.url).href;
 };
 
+const remove = (index)=>{
+    if(confirm("Biztosan törli a receptet ?")) {
+        state.removeReceipt(index);
+    }
+}
+
 const resolveDifficulty = (d) => {
     if (d == 1) return "Könnyű";
     if (d == 2) return "Közepes";
@@ -83,7 +89,7 @@ const filteredReceipts = computed(() => {
     </p>
                 <div class="d-flex">
                     <a href="#" class="btn btn-primary m-1 mb-0">Szerkesztés</a>
-                    <a href="#" class="btn btn-danger m-1 mb-0">Törlés</a>
+                    <a href="#" class="btn btn-danger m-1 mb-0" @click="remove(index)">Törlés</a>
                 </div>
             </div>
         </div>
