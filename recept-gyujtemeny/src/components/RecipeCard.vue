@@ -89,7 +89,7 @@ const filteredReceipts = computed(() => {
 
     <div class="d-flex">
         <div v-for="(receipt, index) in filteredReceipts" :key="index" class="card m-1" style="width: 18rem;">
-            <img :src="resolveUrl(receipt.getImage())" class="card-img-top" alt="edes-csirka">
+            <img :src="resolveUrl(receipt.getImage())" class="card-img-top" :alt="receipt.getTitle()" :title="receipt.getTitle()">
             <div class="card-body">
                 <h5 class="card-title">{{ receipt.getTitle() }}</h5>
                 <p class="card-text">Elkészítési idő: <span>{{ receipt.getPreparation() }}</span> perc </p>
