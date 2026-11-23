@@ -81,7 +81,10 @@ const filteredReceipts = computed(() => {
             {{ resolveDifficulty(receipt.getDifficulty()) }}
         </span>
     </p>
-                <a href="#" class="btn btn-primary">Részletek</a>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-primary m-1 mb-0">Szerkesztés</a>
+                    <a href="#" class="btn btn-danger m-1 mb-0">Törlés</a>
+                </div>
             </div>
         </div>
     </div>
