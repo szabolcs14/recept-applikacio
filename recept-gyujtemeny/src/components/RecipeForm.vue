@@ -1,10 +1,16 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import Receipt from '../classes/Receipt';
 import { receiptState, receiptUpdate, switchPage } from '../state/state';
 
 const updatePage = receiptUpdate()
 const page = switchPage()
+
+const isUpdate = ref(null);
+
+watchEffect(()=>{
+    isUpdate.value = updatePage.getUpdate();
+}) 
 
 const state = receiptState();
 const name = ref("");
@@ -40,8 +46,8 @@ const add = () => {
 }
 </script>
 <template>
-    <h1 v-if="updatePage.getUpdate = false">Add hozzá a saját recepted!</h1>
-    <h1 v-if="updatePage.getUpdate = true">Recept Szerkesztése!</h1>
+    <h1 v-if="!isUpdate">Add hozzá a saját recepted!</h1>
+    <h1 v-if="isUpdate">Recept Szerkesztése!</h1>
     <form>
         <div class="mb-3">
             <label class="form-label">Étel neve</label>
@@ -64,8 +70,8 @@ const add = () => {
             </select>
         </div>
         <div class="mb-3">
-            <p class="m-0 py-3" v-if="updatePage.getUpdate = false"><button type="button" class="btn btn-success" @click="add">Hozzáad</button></p>
-            <p class="m-0 py-3" v-if="updatePage.getUpdate = true"><button type="button" class="btn btn-primary" @click="edit">Szerkeszt</button></p>
+            <p class="m-0 py-3" v-if="!isUpdate"><button type="button" class="btn btn-success" @click="add">Hozzáad</button></p>
+            <p class="m-0 py-3" v-if="isUpdate"><button type="button" class="btn btn-primary" @click="edit">Szerkeszt</button></p>
         </div>
     </form>
 </template>
