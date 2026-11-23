@@ -53,8 +53,9 @@ const edit = (index)=>{
             selectedReceipt.setTitle(name.value);
             selectedReceipt.setPreparation(time.value);
             selectedReceipt.setDifficulty(difficulty.value);
-            alert(selectedReceipt.getTitle());
     }
+    updatePage.updateFalse()
+    page.receiptsPage()
 }
 
 </script>

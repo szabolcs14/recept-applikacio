@@ -36,8 +36,6 @@ const update = (index) => {
     page.formPage();
     updatePage.updateTrue();
     state.setUpdatedIndex(index);
-    alert(state.getUpdateIndex());
-
 }
 
 const resolveDifficulty = (d) => {
