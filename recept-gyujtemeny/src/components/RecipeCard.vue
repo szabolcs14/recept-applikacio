@@ -35,6 +35,8 @@ const remove = (index)=>{
 const update = (index) => {
     page.formPage()
     updatePage.updateTrue()
+    state.setUpdatedIndex(index);
+    alert(state.getUpdateIndex());
 }
 
 const resolveDifficulty = (d) => {
@@ -58,6 +60,8 @@ const filteredReceipts = computed(() => {
         (prepareTime.value == 0 || r.getPreparation() <= prepareTime.value)
     );
 });
+
+
 </script>
 
 <template>

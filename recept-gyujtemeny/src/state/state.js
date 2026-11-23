@@ -3,6 +3,7 @@ import { ref } from "vue";
 
 export const receiptState = defineStore('receiptList', () => {
     const receipts = ref([]);
+    const index = ref(null);
 
     function addReceipt(newReceipt) {
         receipts.value.push(newReceipt);
@@ -16,11 +17,15 @@ export const receiptState = defineStore('receiptList', () => {
         return receipts.value;
     }
 
-    function updatereceipt(index) {
-        return receipts.value[index]
+    function setUpdatedIndex(newIndex) {
+        index.value = newIndex;
     }
 
-    return { addReceipt, removeReceipt, getReceipts, updatereceipt }
+    function getUpdateIndex() {
+        return receipts.value[index];
+    }
+
+    return { addReceipt, removeReceipt, getReceipts, getUpdateIndex, setUpdatedIndex }
 });
 
 export const switchPage = defineStore('switchPage', () => {

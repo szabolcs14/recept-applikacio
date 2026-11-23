@@ -44,6 +44,11 @@ const add = () => {
         name.value = image.value = time.value = difficulty.value = "";
     }
 }
+
+//const edit = (index)=>{
+ //   alert(state.getUpdateIndex());
+//}
+
 </script>
 <template>
     <h1 v-if="!isUpdate">Add hozzá a saját recepted!</h1>
