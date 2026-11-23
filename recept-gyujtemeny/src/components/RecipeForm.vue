@@ -44,10 +44,11 @@ const add = () => {
         name.value = image.value = time.value = difficulty.value = "";
     }
 }
-
-//const edit = (index)=>{
- //   alert(state.getUpdateIndex());
-//}
+const edit = (index)=>{
+    const selectedReceipt = state.getReceipts()[state.getUpdateIndex()];
+    console.log(selectedReceipt);
+    alert(selectedReceipt.getTitle());
+}
 
 </script>
 <template>

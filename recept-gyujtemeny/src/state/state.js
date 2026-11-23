@@ -22,7 +22,7 @@ export const receiptState = defineStore('receiptList', () => {
     }
 
     function getUpdateIndex() {
-        return receipts.value[index];
+        return index.value;
     }
 
     return { addReceipt, removeReceipt, getReceipts, getUpdateIndex, setUpdatedIndex }
