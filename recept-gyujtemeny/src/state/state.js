@@ -56,32 +56,5 @@ export const receiptUpdate = defineStore('receiptUpdate', () => {
         return update.value
     }
 
-    /*
-     const updatedIndex = ref(null)
-
-    const name = ref("")
-    const url = ref("")
-    const time = ref(0)
-    const difficulty = ref(0)
-
-    function getName() {
-        return name.value
-    }
-    function getUrl() {
-        return url.value
-    }
-    function getTime() {
-        return time.value
-    }
-    function getDifficulty() {
-        return difficulty.value
-    }
-
-    function setName(name) {
-        this.name.value = name
-    }
-    */
-   
-
     return { updateTrue, updateFalse, getUpdate }
 })
