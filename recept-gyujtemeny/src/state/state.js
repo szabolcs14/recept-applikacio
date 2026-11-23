@@ -16,7 +16,11 @@ export const receiptState = defineStore('receiptList', () => {
         return receipts.value;
     }
 
-    return { addReceipt, removeReceipt, getReceipts }
+    function updatereceipt(index) {
+        return receipts.value[index]
+    }
+
+    return { addReceipt, removeReceipt, getReceipts, updatereceipt }
 });
 
 export const switchPage = defineStore('switchPage', () => {
@@ -35,4 +39,49 @@ export const switchPage = defineStore('switchPage', () => {
     }
 
     return { receiptsPage, formPage, getPage }
+})
+
+export const receiptUpdate = defineStore('receiptUpdate', () => {
+    const update = ref(false)
+
+    function updateTrue() {
+        update.value = true
+    }
+
+    function updateFalse() {
+        update.value = false
+    }
+
+    function getUpdate() {
+        return update.value
+    }
+
+    /*
+     const updatedIndex = ref(null)
+
+    const name = ref("")
+    const url = ref("")
+    const time = ref(0)
+    const difficulty = ref(0)
+
+    function getName() {
+        return name.value
+    }
+    function getUrl() {
+        return url.value
+    }
+    function getTime() {
+        return time.value
+    }
+    function getDifficulty() {
+        return difficulty.value
+    }
+
+    function setName(name) {
+        this.name.value = name
+    }
+    */
+   
+
+    return { updateTrue, updateFalse, getUpdate }
 })

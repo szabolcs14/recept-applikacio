@@ -1,6 +1,9 @@
 <script setup>
 import { watchEffect, ref, computed } from 'vue';
-import { receiptState } from '../state/state';
+import { receiptState, receiptUpdate, switchPage } from '../state/state';
+
+const updatePage = receiptUpdate()
+const page = switchPage()
 
 const state = receiptState();
 const receipts = ref([]);
@@ -27,6 +30,11 @@ const remove = (index)=>{
     if(confirm("Biztosan törli a receptet ?")) {
         state.removeReceipt(index);
     }
+}
+
+const update = (index) => {
+    page.formPage()
+    updatePage.updateTrue()
 }
 
 const resolveDifficulty = (d) => {
@@ -88,7 +96,7 @@ const filteredReceipts = computed(() => {
         </span>
     </p>
                 <div class="d-flex">
-                    <a href="#" class="btn btn-primary m-1 mb-0">Szerkesztés</a>
+                    <a href="#" class="btn btn-primary m-1 mb-0" @click="update(index)">Szerkesztés</a>
                     <a href="#" class="btn btn-danger m-1 mb-0" @click="remove(index)">Törlés</a>
                 </div>
             </div>
